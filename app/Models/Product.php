@@ -11,7 +11,7 @@ class Product extends Model
 
     protected $table = 'products';
 
-    protected $fillable = ['name', 'price'];
+    protected $fillable = ['name', 'price', 'is_deleted', 'is_published'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
