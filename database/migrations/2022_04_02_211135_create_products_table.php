@@ -17,6 +17,8 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->float('price');
+            $table->tinyInteger('is_deleted')->default(0);
+            $table->tinyInteger('is_published')->default(1);
             $table->timestamps();
         });
     }
