@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Filters\QueryFilter;
+use Illuminate\Database\Eloquent\Builder;
 
 class Product extends Model
 {
@@ -19,5 +21,10 @@ class Product extends Model
     public function categories()
     {
         return $this->belongsToMany(Category::class);
+    }
+
+    public function scopeFilter(Builder $builder, QueryFilter $filter)
+    {
+        return $filter->apply($builder);
     }
 }
